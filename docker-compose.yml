@@ -12,9 +12,9 @@ services:
       - GRAFANA_URL=http://grafana:3000
       - GRAFANA_AUTH=admin:admin
       - GRAFANA_ORG_ID=1
-    working_dir: /go/src/github.com/grafana/terraform-provider-grafana
+    working_dir: /go/src/github.com/HenriquePiccolo/terraform-provider-grafana
     volumes:
-      - .:/go/src/github.com/grafana/terraform-provider-grafana
+      - .:/go/src/github.com/HenriquePiccolo/terraform-provider-grafana
     depends_on:
       - grafana
     networks:

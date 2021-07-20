@@ -2,6 +2,11 @@ module github.com/grafana/terraform-provider-grafana
 
 go 1.16
 
+replace (
+	github.com/grafana/grafana-api-golang-client v0.0.0-20210622232726-d2fbe458a0cf => github.com/HenriquePiccolo/grafana-api-golang-client v1.0.1
+	k8s.io/client-go v12.0.0+incompatible => k8s.io/client-go v0.21.3
+)
+
 require (
 	github.com/grafana/grafana-api-golang-client v0.0.0-20210720012848-3049c6914b86
 	github.com/grafana/synthetic-monitoring-agent v0.0.24
