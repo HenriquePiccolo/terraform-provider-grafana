@@ -5,7 +5,7 @@ import (
 	"flag"
 	"log"
 
-	"github.com/HenriquePiccolo/terraform-provider-grafana/grafana"
+	"github.com/HenriquePiccolo/terraform-provider-grafana-v2/grafana-v2"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 )
 
@@ -23,10 +23,10 @@ func main() {
 	flag.BoolVar(&debugMode, "debug", false, "set to true to run the provider with support for debuggers like delve")
 	flag.Parse()
 
-	opts := &plugin.ServeOpts{ProviderFunc: grafana.Provider(version)}
+	opts := &plugin.ServeOpts{ProviderFunc: grafana-v2.Provider(version)}
 
 	if debugMode {
-		err := plugin.Debug(context.Background(), "registry.terraform.io/HenriquePiccolo/grafana", opts)
+		err := plugin.Debug(context.Background(), "registry.terraform.io/HenriquePiccolo/grafana-v2", opts)
 		if err != nil {
 			log.Fatal(err.Error())
 		}

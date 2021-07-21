@@ -5,9 +5,9 @@ services:
   grafana-provider:
     environment:
       - GRAFANA_URL=https://mtls-proxy:3001
-      - GRAFANA_TLS_KEY=/go/src/github.com/grafana/terraform-provider-grafana/testdata/client.key
-      - GRAFANA_TLS_CERT=/go/src/github.com/grafana/terraform-provider-grafana/testdata/client.crt
-      - GRAFANA_CA_CERT=/go/src/github.com/grafana/terraform-provider-grafana/testdata/ca.crt
+      - GRAFANA_TLS_KEY=/go/src/github.com/HenriquePiccolo/terraform-provider-grafana-v2/testdata/client.key
+      - GRAFANA_TLS_CERT=/go/src/github.com/HenriquePiccolo/terraform-provider-grafana-v2/testdata/client.crt
+      - GRAFANA_CA_CERT=/go/src/github.com/HenriquePiccolo/terraform-provider-grafana-v2/testdata/ca.crt
     ports:
       - 3000
     depends_on:

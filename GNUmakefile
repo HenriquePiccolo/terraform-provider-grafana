@@ -32,7 +32,7 @@ changelog:
 		-e CHANGELOG_GITHUB_TOKEN=$$CHANGELOG_GITHUB_TOKEN \
 		ferrarimarco/github-changelog-generator \
 		--user HenriquePiccolo \
-		--project terraform-provider-grafana \
+		--project terraform-provider-grafana-v2 \
 		--future-release $$RELEASE_VERSION
 	@git add CHANGELOG.md && git commit -m "Release $$RELEASE_VERSION"
 
@@ -44,4 +44,4 @@ release:
 drone:
 	drone jsonnet --stream --source .drone/drone.jsonnet --target .drone/drone.yml
 	drone lint .drone/drone.yml
-	drone sign --save HenriquePiccolo/terraform-provider-grafana .drone/drone.yml
+	drone sign --save HenriquePiccolo/terraform-provider-grafana-v2 .drone/drone.yml
