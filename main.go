@@ -23,7 +23,7 @@ func main() {
 	flag.BoolVar(&debugMode, "debug", false, "set to true to run the provider with support for debuggers like delve")
 	flag.Parse()
 
-	opts := &plugin.ServeOpts{ProviderFunc: grafana-v2.Provider(version)}
+	opts := &plugin.ServeOpts{ProviderFunc: grafana_v2.Provider(version)}
 
 	if debugMode {
 		err := plugin.Debug(context.Background(), "registry.terraform.io/HenriquePiccolo/grafana_v2", opts)
