@@ -87,7 +87,6 @@ func CreateTeam(ctx context.Context, d *schema.ResourceData, meta interface{}) d
 	}
 
 	d.SetId(strconv.FormatInt(teamID, 10))
-	d.Set("team_id", teamID)
 	if err = UpdateMembers(d, meta); err != nil {
 		return diag.FromErr(err)
 	}
@@ -108,9 +107,7 @@ func ReadTeam(ctx context.Context, d *schema.ResourceData, meta interface{}) dia
 		return diag.FromErr(err)
 	}
 	d.Set("name", resp.Name)
-	if resp.Email != "" {
-		d.Set("email", resp.Email)
-	}
+        d.Set("email", resp.Email)
 	if err := ReadMembers(d, meta); err != nil {
 		return diag.FromErr(err)
 	}
@@ -239,12 +236,12 @@ func memberChanges(stateMembers, configMembers map[string]TeamMember) []MemberCh
 func addMemberIdsToChanges(meta interface{}, changes []MemberChange) ([]MemberChange, error) {
 	client := meta.(*client).gapi
 	gUserMap := make(map[string]int64)
-	gUsers, err := client.OrgUsersCurrent()
+	gUsers, err := client.Users()
 	if err != nil {
 		return nil, err
 	}
 	for _, u := range gUsers {
-		gUserMap[u.Email] = u.UserID
+		gUserMap[u.Email] = u.ID
 	}
 	var output []MemberChange
 
