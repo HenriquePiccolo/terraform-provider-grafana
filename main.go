@@ -5,7 +5,7 @@ import (
 	"flag"
 	"log"
 
-	"github.com/HenriquePiccolo/terraform-provider-grafana-v2/grafana-v2"
+	"github.com/HenriquePiccolo/terraform-provider-grafana-v2/grafana_v2"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 )
 
@@ -26,7 +26,7 @@ func main() {
 	opts := &plugin.ServeOpts{ProviderFunc: grafana-v2.Provider(version)}
 
 	if debugMode {
-		err := plugin.Debug(context.Background(), "registry.terraform.io/HenriquePiccolo/grafana-v2", opts)
+		err := plugin.Debug(context.Background(), "registry.terraform.io/HenriquePiccolo/grafana_v2", opts)
 		if err != nil {
 			log.Fatal(err.Error())
 		}
